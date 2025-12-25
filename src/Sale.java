@@ -1,30 +1,16 @@
 public class Sale {
     private product product;
     private Customer customer;
-    private int quantity;
-    private double totalPrice;
-
-    public Sale(product product, Customer customer, int quantity) {
+    private int amount;
+    public Sale(product product, Customer customer, int amount) {
         this.product = product;
         this.customer = customer;
-        this.quantity = quantity;
-        calculateTotal();
-    }
-
-    private void calculateTotal() {
-        double price = product.getPrice() * quantity;
-        double discount = price * customer.getDiscount();
-        totalPrice = price - discount;
-    }
-
-    public boolean processSale() {
-        if (product.reduceStock(quantity) && customer.pay(totalPrice)) {
-            return true;
-        }
-        return false;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-}
+        this.amount = amount;}
+    public void process() {
+        double totalPrice = product.getPrice() * amount;
+        if (customer.canBuy(totalPrice) && product.getQuantity() >= amount) {
+            customer.pay(totalPrice);
+            product.sell(amount);
+            System.out.println("Sale successful!");
+        } else {
+            System.out.println("Sale failed!");}}}
