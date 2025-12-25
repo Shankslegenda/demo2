@@ -13,5 +13,5 @@ public class product {
     public void sell(int amount) {
         quantity -= amount;}
     public void showInfo() {
-        System.out.println(name + " | Price: " + price + " | Quantity: " + quantity);}
+        System.out.println(name + "    Price: " + price + "  Quantity: " + quantity);}
 }

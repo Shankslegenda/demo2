@@ -8,9 +8,11 @@ public class Sale {
         this.amount = amount;}
     public void process() {
         double totalPrice = product.getPrice() * amount;
-        if (customer.canBuy(totalPrice) && product.getQuantity() >= amount) {
+        if (customer.canBuy(totalPrice)) {
             customer.pay(totalPrice);
             product.sell(amount);
-            System.out.println("Sale successful!");
+            System.out.println("OK!");
         } else {
             System.out.println("Sale failed!");}}}
+
+

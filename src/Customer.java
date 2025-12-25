@@ -9,4 +9,4 @@ public class Customer {
     public void pay(double price) {
         balance -= price;}
     public void showInfo() {
-        System.out.println(name + " | Balance: " + balance);}}
+        System.out.println(name + "    Balance: " + balance);}}
