@@ -37,7 +37,21 @@ public abstract class Product {
     public String getName() { return name; }
     public double getPrice() { return price; }
     public int getStock() { return stock; }
+    public class BasicProduct extends Product {
+        public BasicProduct(int id, String name, double price, int stock) {
+            super(id, name, price, stock);
+        }
 
+        @Override
+        public void work() {
+            System.out.println(name + " is a basic product");
+        }
+
+        @Override
+        public String getCategory() {
+            return "Basic";
+        }
+    }
     //  method for polymorphism
     public abstract void work();
 
