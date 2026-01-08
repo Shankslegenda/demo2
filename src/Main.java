@@ -54,7 +54,6 @@ public class Main {
             System.out.println("Error: " + e.getMessage());
         }
     }
-
     private static void addDrinkProduct() {
         try {
             System.out.print("ID: "); int id = sc.nextInt(); sc.nextLine();
@@ -68,15 +67,12 @@ public class Main {
             System.out.println("Drink product added!");
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
-        }
-    }
-
+        }}
     private static void viewAllProducts() {
         if (products.isEmpty()) {
             System.out.println("No products available.");
             return;
         }
-
         System.out.println("\n--- ALL PRODUCTS ---");
         for (Product p : products) System.out.println(p);
     }

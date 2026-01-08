@@ -8,7 +8,6 @@ public class foodProduct extends Product {
         this.expiryDate = expiryDate;
         this.frozen = frozen;
     }
-
     @Override
     public void work() {
         System.out.println(name + " is a food product. Expiry: " + expiryDate + ", Frozen: " + frozen);
