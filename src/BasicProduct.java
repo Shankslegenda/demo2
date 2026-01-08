@@ -1,6 +1,6 @@
-public class basicProduct extends Product {
+public class BasicProduct extends Product {
 
-    public basicProduct(int id, String name, double price, int stock) {
+    public BasicProduct(int id, String name, double price, int stock) {
         super(id, name, price, stock);
     }
 
