@@ -1,3 +1,5 @@
+package model;
+
 public class Sale {
     private Product product;
     private Customer customer;
@@ -5,55 +7,33 @@ public class Sale {
     private double totalPrice;
 
     public Sale(Product product, Customer customer, int amount) {
+        if (product == null) throw new IllegalArgumentException("Product cannot be null");
+        if (customer == null) throw new IllegalArgumentException("Customer cannot be null");
+        setAmount(amount);
         this.product = product;
         this.customer = customer;
-        setAmount(amount);
         calculateTotalPrice();
     }
 
     // Getters
-    public Product getProduct() {
-        return product;
-    }
+    public Product getProduct() { return product; }
+    public Customer getCustomer() { return customer; }
+    public int getAmount() { return amount; }
+    public double getTotalPrice() { return totalPrice; }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    //  Setters w validation
-    public void setProduct(Product product) {
-        if (product != null) {
-            this.product = product;
-            calculateTotalPrice();
-        }
-    }
-
-    public void setCustomer(Customer customer) {
-        if (customer != null) {
-            this.customer = customer;
-        }
-    }
-
+    // Setters with validation
     public void setAmount(int amount) {
-        if (amount > 0) {
-            this.amount = amount;
-            calculateTotalPrice();
-        }
-    }
-    private void calculateTotalPrice() {
-        if (product != null) {
-            this.totalPrice = product.getPrice() * amount;
-        }
+        if (amount <= 0)
+            throw new IllegalArgumentException("Amount must be positive");
+        this.amount = amount;
+        calculateTotalPrice();
     }
 
+    private void calculateTotalPrice() {
+        this.totalPrice = product.getPrice() * amount;
+    }
+
+    // Process sale
     public void processSale() {
         if (product.getStock() < amount) {
             System.out.println("Sale failed. Not enough stock.");
@@ -69,6 +49,7 @@ public class Sale {
         }
     }
 
+    // Print receipt
     public void printReceipt() {
         System.out.println("----- RECEIPT -----");
         System.out.println("Customer: " + customer.getName());
@@ -76,13 +57,5 @@ public class Sale {
         System.out.println("Amount: " + amount);
         System.out.println("Total: $" + totalPrice);
         System.out.println("-------------------");
-    }
-
-    @Override
-    public String toString() {
-        return "Sale[product=" + product.getName() +
-                ", customer=" + customer.getName() +
-                ", amount=" + amount +
-                ", totalPrice=" + totalPrice + "]";
     }
 }

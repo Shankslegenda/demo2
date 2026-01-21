@@ -1,11 +1,12 @@
-public class BasicProduct extends Product {
+package model;
+public abstract class BasicProduct extends Product {
 
     public BasicProduct(int id, String name, double price, int stock) {
         super(id, name, price, stock);
     }
 
     @Override
-    public void work() {
+    public void use() {
         System.out.println(getName() + " is a generic product.");
     }
 
