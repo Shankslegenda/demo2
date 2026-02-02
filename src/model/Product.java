@@ -13,13 +13,13 @@ public abstract class Product {
         setStock(stock);
     }
 
-    // Getters
+
     public int getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }
     public int getStock() { return stock; }
 
-    // Setters with exception handling
+
     public void setName(String name) {
         if (name == null || name.trim().isEmpty())
             throw new IllegalArgumentException("Name cannot be empty");
@@ -44,9 +44,8 @@ public abstract class Product {
         stock -= amount;
     }
 
-    // Abstract method to implement in child classes
+
     public abstract void use();
 
-    // Abstract method to return category
     public abstract String getCategory();
 }

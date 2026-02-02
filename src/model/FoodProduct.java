@@ -1,5 +1,4 @@
 package model;
-
 public class FoodProduct extends Product implements Acquirable {
     private String expiryDate;
     private boolean frozen;

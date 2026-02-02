@@ -9,7 +9,6 @@ public class MenuManager implements Menu {
 
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<Product> products = new ArrayList<>();
-
     @Override
     public void DisplayMenu() {
         System.out.println("\n=== STORE MENU ===");
@@ -50,31 +49,27 @@ public class MenuManager implements Menu {
 
         } while (choice != 4);
     }
+    private void addFoodProduct(){
+        int id=products.size()+1;
+        System.out.println("Name:");
+        String name=scanner.nextLine();
 
-    // ---------- helper methods ----------
+        System.out.println("Price:");
+        int price=Integer.parseInt(scanner.nextLine());
 
-    private void addFoodProduct() {
-        int id = products.size() + 1;
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
+        System.out.println("stock:");
+        int stock=Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Price: ");
-        double price = Double.parseDouble(scanner.nextLine());
+        System.out.println("frozen:");
+        Boolean frozen=Boolean.parseBoolean(scanner.nextLine());
 
-        System.out.print("Stock: ");
-        int stock = Integer.parseInt(scanner.nextLine());
+        System.out.println("expiry date:");
+        String expiry=scanner.nextLine();
 
-        System.out.print("Expiry date: ");
-        String expiry = scanner.nextLine();
-
-        System.out.print("Frozen (true/false): ");
-        boolean frozen = Boolean.parseBoolean(scanner.nextLine());
-
-        FoodProduct f = new FoodProduct(id, name, price, stock, expiry, frozen);
+        FoodProduct f=new FoodProduct(id,name,price,stock,expiry,frozen);
         products.add(f);
-        System.out.println("Food product added! ID: " + f.getId());
-    }
 
+    }
     private void addDrinkProduct() {
         int id = products.size() + 1;
         System.out.print("Name: ");
@@ -96,14 +91,13 @@ public class MenuManager implements Menu {
         products.add(d);
         System.out.println("Drink product added! ID: " + d.getId());
     }
-
     private void viewProducts() {
         if (products.isEmpty()) {
             System.out.println("No products available.");
         } else {
             System.out.println("\n--- ALL PRODUCTS ---");
             for (Product p : products) {
-                p.use(); // demonstrates polymorphism
+                p.use();
             }
         }
     }
