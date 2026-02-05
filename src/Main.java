@@ -9,7 +9,7 @@ public class Main {
         dao.displayAllProducts();
         MenuManager menu = new MenuManager();
         menu.run();
-        System.out.println("Thank you!");
+        System.out.println("Thank you !");
         System.out.println(" All data is saved in PostgreSQL.");
     }
 }
