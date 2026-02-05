@@ -44,7 +44,7 @@ public class ProductDAO {
             stmt.close();
             if (rows > 0) {
                 System.out.println("✅ DrinkProduct inserted: " + drink.getName());
-                return true;
+                 return true;
             }
         } catch (SQLException e) {
             System.out.println("❌ Insert DrinkProduct failed!");
